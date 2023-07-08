@@ -1,0 +1,54 @@
+{
+	"name": "HdfHandler",
+	"version": "0.1.0",
+	"author": [
+		"Simon Stier"
+	],
+	"url": "https://github.com/OpenSemanticLab/mediawiki-extensions-HdfHandler",
+	"descriptionmsg": "hdfhandler-desc",
+	"license-name": "AGPL v3",
+	"type": "media",
+	"AutoloadClasses": {
+		"HdfHandlerHooks": "HdfHandler.hooks.php",
+		"SpecialHdfViewer": "specials/SpecialHdfViewer.php"
+	},
+	"config": {
+		"HdfHandlerEnableFoo": true
+	},
+	"ExtensionMessagesFiles": {
+		"HdfHandlerAlias": "HdfHandler.i18n.alias.php",
+		"HdfHandlerMagic": "HdfHandler.i18n.magic.php"
+	},
+	"Hooks": {
+		
+		"ParserFirstCallInit": [
+			"HdfHandlerHooks::onParserFirstCallInit"
+		]
+	},
+	"MessagesDirs": {
+		"HdfHandler": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.hdfhandler.foo": {
+			"scripts": [
+				"modules/ext.hdfhandler.js",
+				"modules/ext.hdfhandler.foo.js"
+			],
+			"styles": [
+				"modules/ext.hdfhandler.foo.css"
+			],
+			"messages": [],
+			"dependencies": []
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "HdfHandler"
+	},
+	"SpecialPages": {
+		"HdfViewer": "SpecialHdfViewer"
+	},
+	"manifest_version": 1
+}
