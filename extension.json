@@ -1,6 +1,6 @@
 {
 	"name": "HdfHandler",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"author": [
 		"Simon Stier"
 	],
@@ -10,7 +10,9 @@
 	"type": "media",
 	"AutoloadClasses": {
 		"HdfHandlerHooks": "HdfHandler.hooks.php",
-		"SpecialHdfViewer": "specials/SpecialHdfViewer.php"
+		"SpecialHdfViewer": "specials/SpecialHdfViewer.php",
+		"HdfMediaHandler": "src/HdfMediaHandler.php",
+		"HdfOutputRenderer": "src/HdfOutputRenderer.php"
 	},
 	"config": {
 		"HdfHandlerEnableFoo": true
@@ -49,6 +51,10 @@
 	},
 	"SpecialPages": {
 		"HdfViewer": "SpecialHdfViewer"
+	},
+	"MediaHandlers": {
+		"application/x-hdf": "HdfMediaHandler",
+		"application/x-hdf5": "HdfMediaHandler"
 	},
 	"manifest_version": 1
 }
