@@ -7,7 +7,11 @@ Mediahandler for HDF5 files
  * [Special page](https://www.mediawiki.org/wiki/Manual:Special_pages) (specials/SpecialHdfViewer.php)
  * [Parser hook](https://www.mediawiki.org/wiki/Manual:Parser_functions) (SciFileHandler/SciFileHandler.hooks.php)
 
-Provides [silx-kit H5WasmApp](https://github.com/silx-kit/h5web/blob/c96cdab281998f43632f43cdefdda9ec16e6ae99/apps/demo/src/h5wasm/H5WasmApp.tsx) under `/w/extensions/SciFileHandler/dist/`
+Provides 
+- [silx-kit H5WasmApp](https://github.com/silx-kit/h5web/blob/c96cdab281998f43632f43cdefdda9ec16e6ae99/apps/demo/src/h5wasm/H5WasmApp.tsx)
+- [NMRrium](https://github.com/cheminfo/nmrium)
+
+under `/w/extensions/SciFileHandler/dist/`
 
 Usage as static page `Special/HdfViewer/<optional_hdf_file_stored_in_the_wiki>.hdf`
 
@@ -27,6 +31,8 @@ On any page
 
 
 ## Development
+
+### H5WasmApp
 
 To build [silx-kit H5WasmApp](https://github.com/silx-kit/h5web/blob/c96cdab281998f43632f43cdefdda9ec16e6ae99/apps/demo/src/h5wasm/H5WasmApp.tsx) in `dist/`:
 
@@ -79,3 +85,13 @@ pnpm run build
 1. optionally run `npx http-server` and navigate to `http://localhost:8080/apps/demo/dist/` for testing
 
 1. copy `h5web/apps/demo/dist/` to `SciFileHandler/dist/`
+
+### NMRium
+
+```bash
+cd apps/nmrium
+npm i
+npx webpack --mode development
+npx webpack --mode production
+mv  dist ../../dist/NMRium
+```

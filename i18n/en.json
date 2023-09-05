@@ -8,5 +8,8 @@
 	"scifilehandler-i18n-welcome": "Welcome to the localization file of the SciFileHandler extension.",
 	"scifilehandler-special-hdfviewer-title": "HDF File Viewer",
 	"scifilehandler-special-hdfviewer-intro": "Viewer for [https://en.wikipedia.org/wiki/Hierarchical_Data_Format Hierarchical Data Format] files, based on [https://github.com/silx-kit/h5web h5web]. You can link to <code>Special:HdfViewer/<your_file>.hdf</code> to open a file directly.",
-	"hdfviewer": "HDF File Viewer"
+	"hdfviewer": "HDF File Viewer",
+	"scifilehandler-special-nmrviewer-title": "NMRium File Viewer",
+	"scifilehandler-special-nmrviewer-intro": "Viewer for NMR files, based on [https://github.com/cheminfo/nmrium NMRium]. You can link to <code>Special:NmrViewer/<your_file>.hdf</code> to open a file directly."
+	
 }

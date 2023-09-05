@@ -3,4 +3,6 @@
 /.project
 /composer.lock
 /vendor
-/node_modules
+node_modules
+package-lock.json
+apps/*/dist

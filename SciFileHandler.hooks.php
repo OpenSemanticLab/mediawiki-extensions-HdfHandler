@@ -30,4 +30,21 @@ class SciFileHandlerHooks {
 
 		return "This text will be shown when calling this in MW text.";
 	}
+
+	public static function onMimeMagicInit( $mime ) {
+		$mime->addExtraTypes( 'chemical/x-jcamp-dx dx jdx jcm' );
+	}
+	
+	public static function onMimeMagicImproveFromExtension( $mimeAnalyzer, $ext, &$mime ) {
+	    if ( in_array( $ext, ['dx', 'jdx', 'jcm'] ) ) {
+	        $mime = 'chemical/x-jcamp-dx';
+	    }
+	}
+	
+	public static function onMimeMagicGuessFromContent( $mimeAnalyzer, &$head, &$tail, $file, &$mime ) {
+		#if ( str_contains( $head, '##JCAMP' ) ) {
+		#	$mime = 'chemical/x-jcamp-dx';
+		#}
+		return;
+	}
 }

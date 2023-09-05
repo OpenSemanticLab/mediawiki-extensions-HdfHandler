@@ -1,6 +1,6 @@
 {
 	"name": "SciFileHandler",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"author": [
 		"Simon Stier"
 	],
@@ -10,21 +10,42 @@
 	"type": "media",
 	"AutoloadClasses": {
 		"SciFileHandlerHooks": "SciFileHandler.hooks.php",
+		"AbstractViewer": "specials/AbstractViewer.php",
 		"SpecialHdfViewer": "specials/SpecialHdfViewer.php",
+		"SpecialNmrViewer": "specials/SpecialNmrViewer.php",
+		"AbstractMediaHandler": "src/AbstractMediaHandler.php",
+		"AbstractOutputRenderer": "src/AbstractOutputRenderer.php",
 		"HdfMediaHandler": "src/HdfMediaHandler.php",
-		"HdfOutputRenderer": "src/HdfOutputRenderer.php"
+		"HdfOutputRenderer": "src/HdfOutputRenderer.php",
+		"NmrMediaHandler": "src/NmrMediaHandler.php",
+		"NmrOutputRenderer": "src/NmrOutputRenderer.php"
 	},
 	"config": {
-		"SciFileHandlerEnableFoo": true
+		"SciFileHandlerEnableFoo": true,
+		"wgFileExtensions": {
+			"value": [
+				"hdf", "h4", "hdf4", "he2", "h5", "hdf5", "he5",
+				"dx", "jdx", "jcm"
+			],
+			"merge_strategy": "array_plus"
+		}
 	},
 	"ExtensionMessagesFiles": {
 		"SciFileHandlerAlias": "SciFileHandler.i18n.alias.php",
 		"SciFileHandlerMagic": "SciFileHandler.i18n.magic.php"
 	},
 	"Hooks": {
-		
 		"ParserFirstCallInit": [
 			"SciFileHandlerHooks::onParserFirstCallInit"
+		],
+		"MimeMagicInit": [
+			"SciFileHandlerHooks::onMimeMagicInit"
+		],
+		"MimeMagicImproveFromExtension": [
+			"SciFileHandlerHooks::onMimeMagicImproveFromExtension"
+		],
+		"MimeMagicGuessFromContent": [
+			"SciFileHandlerHooks::onMimeMagicGuessFromContent"
 		]
 	},
 	"MessagesDirs": {
@@ -50,11 +71,13 @@
 		"remoteExtPath": "SciFileHandler"
 	},
 	"SpecialPages": {
-		"HdfViewer": "SpecialHdfViewer"
+		"HdfViewer": "SpecialHdfViewer",
+		"NmrViewer": "SpecialNmrViewer"
 	},
 	"MediaHandlers": {
 		"application/x-hdf": "HdfMediaHandler",
-		"application/x-hdf5": "HdfMediaHandler"
+		"application/x-hdf5": "HdfMediaHandler",
+		"chemical/x-jcamp-dx": "NmrMediaHandler"
 	},
 	"manifest_version": 1
 }
