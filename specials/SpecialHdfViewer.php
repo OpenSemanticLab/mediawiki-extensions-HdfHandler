@@ -1,6 +1,6 @@
 <?php
 /**
- * HelloWorld SpecialPage for HdfHandler extension
+ * HelloWorld SpecialPage for SciFileHandler extension
  *
  * @file
  * @ingroup Extensions
@@ -27,11 +27,11 @@ class SpecialHdfViewer extends SpecialPage {
 		// $request = $this->getRequest();
 		// $myparam = $request->getText( 'myparam' );
 
-		$out->setPageTitle( $this->msg( 'hdfhandler-special-hdfviewer-title' ) );
+		$out->setPageTitle( $this->msg( 'scifilehandler-special-hdfviewer-title' ) );
 
 		// $out->addHelpLink( 'Displays Hierarchical Data Format (HDF) Files' );
 
-		$out->addWikiMsg( 'hdfhandler-special-hdfviewer-intro' );
+		$out->addWikiMsg( 'scifilehandler-special-hdfviewer-intro' );
 
 		$params = "";
 		if ($par) $params = "?url=/w/index.php?title=Special:Redirect/file/$par";
@@ -39,7 +39,7 @@ class SpecialHdfViewer extends SpecialPage {
 		$iframe = <<<EOD
 		<iframe 
 			id="Iframe1" 
-			src="/w/extensions/HdfHandler/dist/$params" 
+			src="/w/extensions/SciFileHandler/dist/$params" 
 			width="100%" 
 			height="1000px" 
 			frameborder="0">

@@ -4,9 +4,9 @@
 			"Simon Stier"
 		]
 	},
-	"hdfhandler-desc": "{{desc|name=HdfHandler|url=https://github.com/OpenSemanticLab/mediawiki-extensions-HdfHandler }}",
-	"hdfhandler-i18n-welcome": "Used to greet the user when reading the i18n/??.json file.",
-	"hdfhandler-special-hdfviewer-title": "Page title of the HdfViewer special page.\n{{Identical|HdfViewer}}",
-	"hdfhandler-special-hdfviewer-intro": "Text displayed on the HdfViewer SpecialPage.",
-	"hdfhandler": "Text of the link to the HdfViewer special page on SpecialPages.\n{{Identical|HdfViewer}}"
+	"scifilehandler-desc": "{{desc|name=SciFileHandler|url=https://github.com/OpenSemanticLab/mediawiki-extensions-SciFileHandler }}",
+	"scifilehandler-i18n-welcome": "Used to greet the user when reading the i18n/??.json file.",
+	"scifilehandler-special-hdfviewer-title": "Page title of the HdfViewer special page.\n{{Identical|HdfViewer}}",
+	"scifilehandler-special-hdfviewer-intro": "Text displayed on the HdfViewer SpecialPage.",
+	"scifilehandler": "Text of the link to the HdfViewer special page on SpecialPages.\n{{Identical|HdfViewer}}"
 }

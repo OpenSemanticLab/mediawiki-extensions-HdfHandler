@@ -74,7 +74,7 @@ class HdfOutputRenderer extends MediaTransformOutput {
         $iframe = <<<EOD
 		<iframe 
 			id="Iframe1" 
-			src="/w/extensions/HdfHandler/dist/$params" 
+			src="/w/extensions/SciFileHandler/dist/H5WasmApp/$params" 
 			style="width:100%; min-width:{$this->pIframeMinWidth}px; min-height:{$this->pIframeMinHeight}px;"
 			frameborder="0">
 		</iframe>
@@ -93,7 +93,7 @@ class HdfOutputRenderer extends MediaTransformOutput {
 		<div style="width: {$targetWidth}px; height: {$targetHeight}px;">
 		<iframe 
 			id="Iframe1" 
-			src="/w/extensions/HdfHandler/dist/$params" 
+			src="/w/extensions/SciFileHandler/dist/H5WasmApp/$params" 
 			style="width:{$this->pIframeMinWidth}px; height: {$this->pIframeMinHeight}px; -webkit-transform: scale($scale); -webkit-transform-origin: 0 0;"
 			frameborder="0">
 		</iframe>
@@ -105,7 +105,7 @@ class HdfOutputRenderer extends MediaTransformOutput {
 
         // create a placeholder
         //$logo = "/w/resources/assets/file-type-icons/fileicon.png";
-        $logo = "/w/extensions/HdfHandler/resources/hdf_logo.svg";
+        $logo = "/w/extensions/SciFileHandler/resources/hdf_logo.svg";
         $placeholder = <<<EOD
         <a href="$this->pPageUrl" class="image">
         <img alt="$this->pFileName" 

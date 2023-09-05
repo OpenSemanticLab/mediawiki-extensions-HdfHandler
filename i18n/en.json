@@ -4,9 +4,9 @@
 			"Simon Stier"
 		]
 	},
-	"hdfhandler-desc": "Mediahandler for HDF5 files",
-	"hdfhandler-i18n-welcome": "Welcome to the localization file of the HdfHandler extension.",
-	"hdfhandler-special-hdfviewer-title": "HDF File Viewer",
-	"hdfhandler-special-hdfviewer-intro": "Viewer for [https://en.wikipedia.org/wiki/Hierarchical_Data_Format Hierarchical Data Format] files, based on [https://github.com/silx-kit/h5web h5web]. You can link to <code>Special:HdfViewer/<your_file>.hdf</code> to open a file directly.",
+	"scifilehandler-desc": "Mediahandler for HDF5 files",
+	"scifilehandler-i18n-welcome": "Welcome to the localization file of the SciFileHandler extension.",
+	"scifilehandler-special-hdfviewer-title": "HDF File Viewer",
+	"scifilehandler-special-hdfviewer-intro": "Viewer for [https://en.wikipedia.org/wiki/Hierarchical_Data_Format Hierarchical Data Format] files, based on [https://github.com/silx-kit/h5web h5web]. You can link to <code>Special:HdfViewer/<your_file>.hdf</code> to open a file directly.",
 	"hdfviewer": "HDF File Viewer"
 }

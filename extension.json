@@ -1,45 +1,45 @@
 {
-	"name": "HdfHandler",
-	"version": "0.2.0",
+	"name": "SciFileHandler",
+	"version": "0.3.0",
 	"author": [
 		"Simon Stier"
 	],
-	"url": "https://github.com/OpenSemanticLab/mediawiki-extensions-HdfHandler",
-	"descriptionmsg": "hdfhandler-desc",
+	"url": "https://github.com/OpenSemanticLab/mediawiki-extensions-SciFileHandler",
+	"descriptionmsg": "scifilehandler-desc",
 	"license-name": "AGPL v3",
 	"type": "media",
 	"AutoloadClasses": {
-		"HdfHandlerHooks": "HdfHandler.hooks.php",
+		"SciFileHandlerHooks": "SciFileHandler.hooks.php",
 		"SpecialHdfViewer": "specials/SpecialHdfViewer.php",
 		"HdfMediaHandler": "src/HdfMediaHandler.php",
 		"HdfOutputRenderer": "src/HdfOutputRenderer.php"
 	},
 	"config": {
-		"HdfHandlerEnableFoo": true
+		"SciFileHandlerEnableFoo": true
 	},
 	"ExtensionMessagesFiles": {
-		"HdfHandlerAlias": "HdfHandler.i18n.alias.php",
-		"HdfHandlerMagic": "HdfHandler.i18n.magic.php"
+		"SciFileHandlerAlias": "SciFileHandler.i18n.alias.php",
+		"SciFileHandlerMagic": "SciFileHandler.i18n.magic.php"
 	},
 	"Hooks": {
 		
 		"ParserFirstCallInit": [
-			"HdfHandlerHooks::onParserFirstCallInit"
+			"SciFileHandlerHooks::onParserFirstCallInit"
 		]
 	},
 	"MessagesDirs": {
-		"HdfHandler": [
+		"SciFileHandler": [
 			"i18n"
 		]
 	},
 	"ResourceModules": {
-		"ext.hdfhandler.foo": {
+		"ext.scifilehandler.foo": {
 			"scripts": [
-				"modules/ext.hdfhandler.js",
-				"modules/ext.hdfhandler.foo.js"
+				"modules/ext.scifilehandler.js",
+				"modules/ext.scifilehandler.foo.js"
 			],
 			"styles": [
-				"modules/ext.hdfhandler.foo.css"
+				"modules/ext.scifilehandler.foo.css"
 			],
 			"messages": [],
 			"dependencies": []
@@ -47,7 +47,7 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteExtPath": "HdfHandler"
+		"remoteExtPath": "SciFileHandler"
 	},
 	"SpecialPages": {
 		"HdfViewer": "SpecialHdfViewer"

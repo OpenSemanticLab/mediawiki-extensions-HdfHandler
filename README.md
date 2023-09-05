@@ -1,13 +1,13 @@
-# HdfHandler
+# SciFileHandler
 
 Mediahandler for HDF5 files
 
 ## Features
 
  * [Special page](https://www.mediawiki.org/wiki/Manual:Special_pages) (specials/SpecialHdfViewer.php)
- * [Parser hook](https://www.mediawiki.org/wiki/Manual:Parser_functions) (HdfHandler/HdfHandler.hooks.php)
+ * [Parser hook](https://www.mediawiki.org/wiki/Manual:Parser_functions) (SciFileHandler/SciFileHandler.hooks.php)
 
-Provides [silx-kit H5WasmApp](https://github.com/silx-kit/h5web/blob/c96cdab281998f43632f43cdefdda9ec16e6ae99/apps/demo/src/h5wasm/H5WasmApp.tsx) under `/w/extensions/HdfHandler/dist/`
+Provides [silx-kit H5WasmApp](https://github.com/silx-kit/h5web/blob/c96cdab281998f43632f43cdefdda9ec16e6ae99/apps/demo/src/h5wasm/H5WasmApp.tsx) under `/w/extensions/SciFileHandler/dist/`
 
 Usage as static page `Special/HdfViewer/<optional_hdf_file_stored_in_the_wiki>.hdf`
 
@@ -22,7 +22,7 @@ $wgIframe['server']['wiki'] = [ 'scheme' => 'https', 'domain' => '<your_wiki_dom
 
 On any page
 ```html
-<iframe key="wiki" path="w/extensions/HdfHandler/dist/?url=/w/index.php?title=Special:Redirect/file/<your_file>.hdf"/>
+<iframe key="wiki" path="w/extensions/SciFileHandler/dist/?url=/w/index.php?title=Special:Redirect/file/<your_file>.hdf"/>
 ```
 
 
@@ -47,12 +47,12 @@ function DemoApp() {
   return (
     <Router>
       <Routes>
-        <Route path="/w/extensions/HdfHandler/dist/" element={<H5WasmApp />} />
+        <Route path="/w/extensions/SciFileHandler/dist/" element={<H5WasmApp />} />
         <Route path="h5grove" element={<H5GroveApp />} />
         <Route path="mock" element={<MockApp />} />
         <Route path="hsds" element={<HsdsApp />} />
         <Route path="h5wasm" element={<H5WasmApp />} />
-        <Route path="*" element={<Navigate to="/w/extensions/HdfHandler/dist/" replace />} />
+        <Route path="*" element={<Navigate to="/w/extensions/SciFileHandler/dist/" replace />} />
       </Routes>
     </Router>
   );
@@ -78,4 +78,4 @@ pnpm run build
 
 1. optionally run `npx http-server` and navigate to `http://localhost:8080/apps/demo/dist/` for testing
 
-1. copy `h5web/apps/demo/dist/` to `HdfHandler/dist/`
+1. copy `h5web/apps/demo/dist/` to `SciFileHandler/dist/`
