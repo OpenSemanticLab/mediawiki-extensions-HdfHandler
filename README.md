@@ -29,6 +29,16 @@ On any page
 <iframe key="wiki" path="w/extensions/SciFileHandler/dist/?url=/w/index.php?title=Special:Redirect/file/<your_file>.hdf"/>
 ```
 
+## Install
+
+```php
+$wgFileExtensions = array( ...
+    'hdf', 'h4', 'hdf4', 'he2', 'h5', 'hdf5', 'he5', # HDF File format
+    'dx', 'jdx', 'jcm', #JCAMP-DX
+    'mps', 'mpr', 'mpt', #Biologic 
+);
+```
+
 
 ## Development
 
@@ -87,7 +97,7 @@ pnpm run build
 1. copy `h5web/apps/demo/dist/` to `SciFileHandler/dist/`
 
 ### NMRium
-
+(tested with node v12)
 ```bash
 cd apps/nmrium
 npm i
@@ -95,3 +105,36 @@ npx webpack --mode development
 npx webpack --mode production
 mv  dist ../../dist/NMRium
 ```
+
+### Galvanicium
+install nodejs v18
+```bash
+apt-get update
+apt-get install -y ca-certificates curl gnupg
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+apt-get update
+apt-get install nodejs -y
+```
+
+```bash
+git clone https://github.com/OpenBattTools/galvanicium-app apps/galvanicium
+cd apps/galvanicium
+npm i
+npx vite build --base=./
+mkdir -p ../../dist/Galvanicium && cp -R dist/* ../../dist/Galvanicium/ && cp LICENSE ../../dist/Galvanicium/
+```
+
+to replace eventually remaining abs. paths, run e. g. 
+```bash
+find ./src -type f -readable -writable -exec sed -i "s/\"\/logo/\".\/logo/g" {} \;
+```
+
+for debugging, add 
+```ts
+build: {
+  minify: false
+}
+``` 
+to `vite.config.ts`

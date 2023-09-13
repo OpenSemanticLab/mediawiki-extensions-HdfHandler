@@ -58,12 +58,17 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 	protected $mUrlParam;
 
 	/**
+	 * @var bool
+	 */
+	protected $mHash;
+
+	/**
 	 * @param string $SourceFileURL
 	 * @param string $FileTitle
      * @param string $FileName
      * @param array $params
 	 */
-	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params, $app, $urlParam ) {
+	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params, $app, $urlParam, $hash=false ) {
 		$this->pSourceFileURL = $SourceFileURL; // /w/img_auth.php/b/bc/....hdf
 		$this->pFileTitle = $FileTitle; // "File:...hdf"
         $this->pFileName = $FileName; // "...hdf"
@@ -72,6 +77,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 
         $this->mApp = $app;
         $this->mUrlParam = $urlParam;
+		$this->mHash = $hash;
 	}
 
 	/**
@@ -82,6 +88,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 	public function toHtml( $options = [] ) {
 
 		$params = "?{$this->mUrlParam}=" . $this->pSourceFileURL;
+		if ($this->mHash) $params = '#' . $params;
 
         // create an iframe to display the file
         $iframe = <<<EOD

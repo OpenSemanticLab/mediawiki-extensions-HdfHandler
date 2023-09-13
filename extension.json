@@ -1,6 +1,6 @@
 {
 	"name": "SciFileHandler",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"author": [
 		"Simon Stier"
 	],
@@ -8,26 +8,28 @@
 	"descriptionmsg": "scifilehandler-desc",
 	"license-name": "AGPL v3",
 	"type": "media",
+	"manifest_version": 2,
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
 	"AutoloadClasses": {
 		"SciFileHandlerHooks": "SciFileHandler.hooks.php",
 		"AbstractViewer": "specials/AbstractViewer.php",
 		"SpecialHdfViewer": "specials/SpecialHdfViewer.php",
 		"SpecialNmrViewer": "specials/SpecialNmrViewer.php",
+		"SpecialGalvViewer": "specials/SpecialGalvViewer.php",
 		"AbstractMediaHandler": "src/AbstractMediaHandler.php",
 		"AbstractOutputRenderer": "src/AbstractOutputRenderer.php",
 		"HdfMediaHandler": "src/HdfMediaHandler.php",
 		"HdfOutputRenderer": "src/HdfOutputRenderer.php",
 		"NmrMediaHandler": "src/NmrMediaHandler.php",
-		"NmrOutputRenderer": "src/NmrOutputRenderer.php"
+		"NmrOutputRenderer": "src/NmrOutputRenderer.php",
+		"GalvMediaHandler": "src/GalvMediaHandler.php",
+		"GalvOutputRenderer": "src/GalvOutputRenderer.php"
 	},
 	"config": {
-		"SciFileHandlerEnableFoo": true,
-		"wgFileExtensions": {
-			"value": [
-				"hdf", "h4", "hdf4", "he2", "h5", "hdf5", "he5",
-				"dx", "jdx", "jcm"
-			],
-			"merge_strategy": "array_plus"
+		"SciFileHandlerEnableFoo": {
+			"value": true
 		}
 	},
 	"ExtensionMessagesFiles": {
@@ -72,12 +74,14 @@
 	},
 	"SpecialPages": {
 		"HdfViewer": "SpecialHdfViewer",
-		"NmrViewer": "SpecialNmrViewer"
+		"NmrViewer": "SpecialNmrViewer",
+		"GalvViewer": "SpecialGalvViewer"
 	},
 	"MediaHandlers": {
 		"application/x-hdf": "HdfMediaHandler",
 		"application/x-hdf5": "HdfMediaHandler",
-		"chemical/x-jcamp-dx": "NmrMediaHandler"
-	},
-	"manifest_version": 1
+		"chemical/x-jcamp-dx": "NmrMediaHandler",
+		"application/x-biologic": "GalvMediaHandler",
+		"chemical/x-biologic": "GalvMediaHandler"
+	}
 }

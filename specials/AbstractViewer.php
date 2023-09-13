@@ -13,13 +13,15 @@ abstract class AbstractViewer extends SpecialPage {
     protected $mId;
     protected $mApp;
     protected $mUrlParam;
+	protected $mHash;
 
-	public function __construct($name, $id, $app, $url_param) {
+	public function __construct($name, $id, $app, $url_param, $hash=false) {
 		parent::__construct( $name, '' );
 		$this->mIncludable = true; // make it includeable in other pages
         $this->mId = $id;
         $this->mApp = $app;
         $this->mUrlParam = $url_param;
+		$this->mHash = $hash;
 	}
 
 	/**
@@ -29,6 +31,9 @@ abstract class AbstractViewer extends SpecialPage {
 	 *  [[Special:HdfViewer/subpage]].
 	 */
 	public function execute( $par ) {
+		global $wgScriptPath;
+		global $wgServerName;
+
 		$out = $this->getOutput();
 
 		// request params if needed
@@ -42,7 +47,10 @@ abstract class AbstractViewer extends SpecialPage {
 		$out->addWikiMsg( "scifilehandler-special-" . $this->mId . "-intro" );
 
 		$params = "";
-		if ($par) $params = "?{$this->mUrlParam}=/w/index.php?title=Special:Redirect/file/$par";
+		if ($par) {
+			$params = "?{$this->mUrlParam}=https://{$wgServerName}{$wgScriptPath}/index.php?title=Special:Redirect/file/$par";
+			if ($this->mHash) $params = "#" . $params;
+		}
 
 		$iframe = <<<EOD
 		<iframe 

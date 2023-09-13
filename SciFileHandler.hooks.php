@@ -39,6 +39,16 @@ class SciFileHandlerHooks {
 	    if ( in_array( $ext, ['dx', 'jdx', 'jcm'] ) ) {
 	        $mime = 'chemical/x-jcamp-dx';
 	    }
+		if ( in_array( $ext, ['mpr', 'mpt', 'mps'] ) ) {
+			
+			#.mpr : Raw binary file containing the data
+			#.mpt : .mpr into Text file
+			#.mps : experiment Settings text file.
+		
+			#$mime = 'application/octet-stream'
+	        $mime = 'application/x-biologic';
+	    }
+		
 	}
 	
 	public static function onMimeMagicGuessFromContent( $mimeAnalyzer, &$head, &$tail, $file, &$mime ) {
