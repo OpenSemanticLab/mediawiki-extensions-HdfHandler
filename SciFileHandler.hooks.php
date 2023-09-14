@@ -36,6 +36,12 @@ class SciFileHandlerHooks {
 	}
 	
 	public static function onMimeMagicImproveFromExtension( $mimeAnalyzer, $ext, &$mime ) {
+		if ( in_array( $ext, ['hdf', 'h4', 'hdf4', 'he2']) ) {
+			$mime = 'application/x-hdf';
+		}
+                if ( in_array( $ext, ['h5', 'hdf5', 'he5']) ) {
+                        $mime = 'application/x-hdf5';
+                }
 	    if ( in_array( $ext, ['dx', 'jdx', 'jcm'] ) ) {
 	        $mime = 'chemical/x-jcamp-dx';
 	    }
