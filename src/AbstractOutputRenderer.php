@@ -68,7 +68,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
      * @param string $FileName
      * @param array $params
 	 */
-	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params, $app, $urlParam, $hash=false ) {
+	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params, $app, $logo, $urlParam, $hash=false ) {
 		$this->pSourceFileURL = $SourceFileURL; // /w/img_auth.php/b/bc/....hdf
 		$this->pFileTitle = $FileTitle; // "File:...hdf"
         $this->pFileName = $FileName; // "...hdf"
@@ -76,6 +76,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
         $this->pPageUrl = $this->pParams["descriptionUrl"]; // "/wiki/File:....hdf"
 
         $this->mApp = $app;
+		$this->mLogo = $logo;
         $this->mUrlParam = $urlParam;
 		$this->mHash = $hash;
 	}
@@ -86,6 +87,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 	 * @return string
 	 */
 	public function toHtml( $options = [] ) {
+		global $wgScriptPath;
 
 		$params = "?{$this->mUrlParam}=" . $this->pSourceFileURL;
 		if ($this->mHash) $params = '#' . $params;
@@ -94,7 +96,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
         $iframe = <<<EOD
 		<iframe 
 			id="Iframe1" 
-			src="/w/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
+			src="$wgScriptPath/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
 			style="width:100%; min-width:{$this->pIframeMinWidth}px; min-height:{$this->pIframeMinHeight}px;"
 			frameborder="0">
 		</iframe>
@@ -113,7 +115,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 		<div style="width: {$targetWidth}px; height: {$targetHeight}px;">
 		<iframe 
 			id="Iframe1" 
-			src="/w/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
+			src="$wgScriptPath/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
 			style="width:{$this->pIframeMinWidth}px; height: {$this->pIframeMinHeight}px; -webkit-transform: scale($scale); -webkit-transform-origin: 0 0;"
 			frameborder="0">
 		</iframe>
@@ -124,13 +126,11 @@ class AbstractOutputRenderer extends MediaTransformOutput {
         //$optionsStr .= "<p>" . Json_encode($options) . "</p>";
 
         // create a placeholder
-        //$logo = "/w/resources/assets/file-type-icons/fileicon.png";
-        $logo = "/w/extensions/SciFileHandler/resources/{$this->mLogo}";
+        //$logo = "$wgScriptPath/resources/assets/file-type-icons/fileicon.png";
+        $logo = "$wgScriptPath/extensions/SciFileHandler/resources/{$this->mLogo}";
         $placeholder = <<<EOD
         <a href="$this->pPageUrl" class="image">
-        <img alt="$this->pFileName" 
-        src="$logo" 
-        decoding="async" data-file-width="0" data-file-height="0" width="120" height="120">
+        	<img alt="" src="$logo">
         </a>
         EOD;
 

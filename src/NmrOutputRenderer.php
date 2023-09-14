@@ -9,7 +9,7 @@ class NmrOutputRenderer extends AbstractOutputRenderer {
      * @param array $params
 	 */
 	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params ) {
-		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'NMRium', 'jcampURL');
+		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'NMRium', 'nmrium_logo.svg', 'jcampURL');
 	}
 
 }

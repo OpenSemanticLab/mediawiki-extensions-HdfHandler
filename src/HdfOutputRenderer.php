@@ -9,7 +9,7 @@ class HdfOutputRenderer extends AbstractOutputRenderer {
      * @param array $params
 	 */
 	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params ) {
-		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'H5WasmApp', 'url' );
+		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'H5WasmApp', 'hdf_logo.svg', 'url' );
 	}
 
 }

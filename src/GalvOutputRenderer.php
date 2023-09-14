@@ -9,7 +9,7 @@ class GalvOutputRenderer extends AbstractOutputRenderer {
      * @param array $params
 	 */
 	public function __construct( $SourceFileURL, $FileTitle, $FileName, $params ) {
-		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'Galvanicium', 'file', true);
+		parent::__construct( $SourceFileURL, $FileTitle, $FileName, $params, 'Galvanicium', 'galvanicium_logo.svg', 'file', true);
 	}
 
 }
