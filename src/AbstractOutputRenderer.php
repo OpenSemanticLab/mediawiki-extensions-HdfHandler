@@ -52,6 +52,11 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 	 */
 	protected $mApp;
 
+    /**
+	 * @var string
+	 */
+	protected $mLogo;
+
 	/**
 	 * @var string
 	 */
@@ -94,12 +99,14 @@ class AbstractOutputRenderer extends MediaTransformOutput {
 
         // create an iframe to display the file
         $iframe = <<<EOD
-		<iframe 
-			id="Iframe1" 
-			src="$wgScriptPath/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
-			style="width:100%; min-width:{$this->pIframeMinWidth}px; min-height:{$this->pIframeMinHeight}px;"
-			frameborder="0">
-		</iframe>
+		<div class="SciFileHandler" style="width:100%;">
+			<iframe
+				id="Iframe1"
+				src="$wgScriptPath/extensions/SciFileHandler/dist/{$this->mApp}/$params"
+				style="width:100%; min-width:{$this->pIframeMinWidth}px; min-height:{$this->pIframeMinHeight}px;"
+				frameborder="0">
+			</iframe>
+		</div>
 		EOD;
 
         // create an scaled iframe to display the file
@@ -112,7 +119,7 @@ class AbstractOutputRenderer extends MediaTransformOutput {
         $heightScale = $targetHeight / $this->pIframeMinHeight;
         $scale = min([$widthScale, $heightScale]);
         $scaledIframe = <<<EOD
-		<div style="width: {$targetWidth}px; height: {$targetHeight}px;">
+		<div class="SciFileHandler" style="width: {$targetWidth}px; height: {$targetHeight}px;">
 		<iframe 
 			id="Iframe1" 
 			src="$wgScriptPath/extensions/SciFileHandler/dist/{$this->mApp}/$params" 
